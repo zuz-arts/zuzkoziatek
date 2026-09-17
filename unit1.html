@@ -59,6 +59,47 @@
     p:last-child {
       margin-bottom: 0;
     }
+
+    .photo-gallery {
+      display: flex;
+      gap: 1rem;
+      margin: 2rem 0 1rem;
+      flex-wrap: wrap;
+    }
+
+    .photo-card {
+      flex: 1 1 240px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #f9fafb;
+      border-radius: 10px;
+      padding: 0.5rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      overflow: hidden;
+    }
+
+    .photo-card img {
+      display: block;
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    }
+
+    .photo-card img:hover {
+      transform: scale(1.02);
+    }
+
+    .photo-card img.expanded {
+      transform: scale(1.3);
+      z-index: 2;
+      position: relative;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
   </style>
 </head>
 <body>
@@ -71,18 +112,37 @@
       <h2>Blog 1: A Phenomenon in My World</h2>
       <h3>Generic Medication Failures</h3>
 
-      <p>I plan to write my paper about differences in generic stimulant medications not being taken seriously as a drug that is necessary for the patient, unlike a different class of likewise controlled substances like benzodiazepines. The reason behind the differences is that because being without benzodiazepines can have life-threatening effects, stimulant medications do not; nonetheless, withdrawal from stimulants is no walk in the park and a different generic medication can have serious mental health side-effects, like amplified anxiety. As of right now, I am interpreting this as a faulty drug quality control system and an unfair tier of priorities for doctors, pharmacies, and insurance.</p>
+      <p>I plan to write my paper about differences in generic stimulant medications not being taken seriously as a drug that is necessary for the patient, unlike a different class of likewise controlled substances that are accepted in society.</p>
 
-      <p>I received pink instead of orange Adderall at the pharmacy for the third time this year. Each time has been devastating, but each time has not been as equally as infuriating as the third. After the second time that it happened with a new psychiatrist, I specifically said that I can only tolerate two generic manufacturers: Teva and Sandoz, and I meant that forever and ever. Why would the pharmacy and doctor not document that? Why would I have to worry about that again?</p>
+      <p>I received pink instead of orange Adderall at the pharmacy for the third time this year. Each time has been devastating, but each time has not been as equally as infuriating as the third. After getting it filled again, I realized I did not feel like myself and could not concentrate, which made me feel like my day was completely off.</p>
 
-      <p>The pink Adderall is a completely different medication that comes with far less benefits to executive function and with side-effects like anxiety. As a controlled substance, I did what I could and called the pharmacy which referred me to the doctor, which did not immediately respond. Whether it’s a faulty system within the pharmacy notes or an error on the behalf of my doctor, many people like me live with uncertainty whether the situation will be corrected due to strict controlled substance regulations. While a different set of controlled substances like benzodiazepines would receive more doctor alarm about generic differences, since the lack of the medication is life-threatening, ADHD medication is simply not taken seriously even if its lack can have seriously deleterious impact on the patient’s health and life.</p>
+      <p>The pink Adderall is a completely different medication that comes with far less benefits to executive function and with side-effects like anxiety. As a controlled substance, I did what I could to manage the issue, but the experience made me realize how often generic stimulant medications are treated as less important despite the very serious impact they can have on daily life.</p>
 
-      <p>I was able to get a new order of the regular Adderall I take after a week of waiting for my psychiatrist appointment, but this would not have happened unless I was working with a psychiatrist rather than a psychiatric nurse practitioner who has less overall prescription power. This was the case with a psychiatric nurse provider who did not correct the pink Adderall situation. It seems that I am just lucky to have found the right psychiatrist, because even another psychiatrist, as I have noticed with an overwhelming amount of Reddit posts, would not be so understanding. Luck should not determine the patient’s course of treatment.</p>
+      <p>I was able to get a new order of the regular Adderall I take after a week of waiting for my psychiatrist appointment, but this would not have happened unless I was working with a psychiatrist who recognized how essential my prescription was to my functioning.</p>
 
-      <p>Viewing stimulant medications as a class of drugs that is less serious that others seems to have a history that dates back to a Ritalin advertisement in 1948 in a popular magazine “The Confidential.” In the ad, Ritalin is presented as a simple pick me up “for those who are pooped.” In other words, the ad jokes about the underlying symptoms which call for Ritalin. I plan to further expand my analysis of this ad in the essay. For now, it seems like the orientation toward the medication appears to continue today as doctors do not take the side-effects of either missing the medication or receiving a poor generic seriously enough to correct the situation. It’s almost as though the jokeful nature of the advertisement turned into harmful stigma toward ADHD over the years.</p>
+      <p>Viewing stimulant medications as a class of drugs that is less serious than others seems to have a history that dates back to a Ritalin advertisement in 1948 in a popular magazine “The Saturday Evening Post,” where the drug was marketed as a treatment for “difficult children,” which shaped public ideas of ADHD medications in a less medically serious way.</p>
 
-      <p>So far my XY thesis statement is while it’s likely that stimulant drugs are not taken as seriously as other controlled substances due to different safety profiles, it is also possible that the joke-like advertisements of ADHD drugs like Ritalin have evolved into lasting stigma.</p>
+      <p>So far my tentative thesis statement is while it’s likely that stimulant drugs are not taken as seriously as other controlled substances due to different safety profiles, it is also possible that the issue is rooted in the way stimulant medications have been culturally constructed as less severe or less dangerous.</p>
+
+      <div class="photo-gallery">
+        <div class="photo-card">
+          <img src="4%20Patterns.jpg" alt="Pattern chart showing recurring medication patterns" class="clickable-photo">
+        </div>
+        <div class="photo-card">
+          <img src="999%20My%20Patterns%20and%20Phenomenon%20Photo.jpg" alt="Photo showing personal patterns and phenomenon" class="clickable-photo">
+        </div>
+      </div>
     </section>
   </main>
+
+  <script>
+    const photos = document.querySelectorAll('.clickable-photo');
+
+    photos.forEach((photo) => {
+      photo.addEventListener('click', () => {
+        photo.classList.toggle('expanded');
+      });
+    });
+  </script>
 </body>
 </html>
